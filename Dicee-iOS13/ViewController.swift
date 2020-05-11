@@ -16,29 +16,17 @@ class ViewController: UIViewController {
     
     var leftDiceNumber = 1
     var rightDiceNumber = 5
+    let diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         
-        diceImageView1.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][leftDiceNumber]
+        diceImageView1.image = diceArray [leftDiceNumber]
         
-        diceImageView2.image = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")][rightDiceNumber]
+        diceImageView2.image = diceArray [rightDiceNumber]
         
-        if (leftDiceNumber < 5){
-            leftDiceNumber = leftDiceNumber + 1
-        } else {
-            leftDiceNumber = 0
-        }
-        
-        if (rightDiceNumber != 0){
-            rightDiceNumber = rightDiceNumber - 1
-        } else {
-            rightDiceNumber = 5
-        }
+        leftDiceNumber = Int.random(in: 1...5)
+        rightDiceNumber = Int.random(in: 1...5)
         
     }
     
